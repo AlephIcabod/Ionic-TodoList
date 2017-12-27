@@ -16,10 +16,6 @@ export class Terminados implements OnInit {
 
 ngOnInit() { }
 
-nuevo(){
-this.navCtrl.push(AgregarComponent);
-}
-
 verDetalle(i,lista){
 this.navCtrl.push(Detalle,{i,lista})
 }
