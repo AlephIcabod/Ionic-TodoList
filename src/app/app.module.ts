@@ -10,7 +10,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Pendientes } from '../pages/pendientes/pendientes.component';
+import { Detalle } from '../pages/detalle/detalle.component';
 import { Terminados } from '../pages/terminados/terminados.component';
+import {AgregarComponent } from '../pages/agregar/agregar.component';
+
+
+import { TodoListService } from './services/todoList.service';
+
+import { PlaceholderPipe } from './pipes/placeholder.pipe';
+
 
 
 @NgModule({
@@ -18,7 +26,10 @@ import { Terminados } from '../pages/terminados/terminados.component';
     MyApp,
     TabsPage,
     Pendientes,
-    Terminados
+    Terminados,
+    AgregarComponent,
+    PlaceholderPipe,
+    Detalle
   ],
   imports: [
     BrowserModule,
@@ -29,11 +40,14 @@ import { Terminados } from '../pages/terminados/terminados.component';
     MyApp,
     TabsPage,
     Pendientes,
-    Terminados
+    Terminados,
+  AgregarComponent,
+  Detalle
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    TodoListService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
