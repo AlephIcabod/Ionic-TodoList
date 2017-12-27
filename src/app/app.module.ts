@@ -18,6 +18,8 @@ import {AgregarComponent } from '../pages/agregar/agregar.component';
 import { TodoListService } from './services/todoList.service';
 
 import { PlaceholderPipe } from './pipes/placeholder.pipe';
+import { FiltradorListasPipe } from './pipes/terminadas.pipe';
+import { VerficaListasPipe } from './pipes/verificador.pipe';
 
 
 
@@ -29,6 +31,8 @@ import { PlaceholderPipe } from './pipes/placeholder.pipe';
     Terminados,
     AgregarComponent,
     PlaceholderPipe,
+    FiltradorListasPipe,
+    VerficaListasPipe,
     Detalle
   ],
   imports: [

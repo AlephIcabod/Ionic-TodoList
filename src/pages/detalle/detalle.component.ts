@@ -31,6 +31,9 @@ export class Detalle implements OnInit {
 
    actualizar(item:ListItem){
       item.finished=!item.finished
+      this.lista.finished=this.lista.items.reduce((x,i:ListItem)=>{
+        return i.finished&&x
+      },true)
       this.todoService.updateData()
    }
 
@@ -39,11 +42,7 @@ export class Detalle implements OnInit {
       title: 'Elimnar lista',
       message: `¿Esta seguro de que desea eliminar la lista ${this.lista.name}?`,
       buttons: [
-        {
-          text: 'Cancelar',
-          handler: () => {
-          }
-        },
+         'Cancelar',
         {
           text: 'Eliminar',
           handler: () => {

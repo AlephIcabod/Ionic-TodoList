@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngIf="todoService.listas.length==0">
+  <ion-card *ngIf="todoService.listas.length==0||todoService.listas|verificalistas">
     <ion-card-content>
         <ion-icon name="happy"></ion-icon>
         No hay Tareas pendientes
@@ -13,18 +13,15 @@
   </ion-card>
 
 
-  <h2 *ngIf="todoService.listas.length>0">Pendientes</h2>
+  <h2 *ngIf="todoService.listas|verificalistas:true">Pendientes</h2>
 
-  <ion-card *ngFor="let lista of todoService.listas;let i=index">
+  <ion-card *ngFor="let lista of todoService.listas |filtradorListas;let i=index">
 
       <ion-item color="dark" (click)=verDetalle(i,lista)>
           <ion-icon ios="ios-arrow-dropright" md="md-arrow-dropright" item-right></ion-icon>
           <h2 color="white"> {{lista.name |titlecase}}</h2>
           <p>{{lista.items.length}} Elementos</p>
         </ion-item>
-
-
-
     <ion-list>
       <button (click)=verDetalle(i,lista) ion-item *ngFor="let item of lista.items| slice:0:2">
           <ion-icon item-left name="checkmark" color="secondary" *ngIf="item.finished"></ion-icon>
